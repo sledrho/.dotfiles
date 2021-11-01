@@ -48,6 +48,7 @@ Plug 'haystackandroid/vimspectr'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 if !exists("g:syntax_on")
