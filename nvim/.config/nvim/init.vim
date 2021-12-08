@@ -47,8 +47,9 @@ Plug 'mhartington/oceanic-next'
 Plug 'haystackandroid/vimspectr'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'averms/black-nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 if !exists("g:syntax_on")
