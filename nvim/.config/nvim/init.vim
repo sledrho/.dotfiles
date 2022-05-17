@@ -20,6 +20,8 @@ set undodir=~/.nvim/undodir
 set undofile
 set incsearch
 set termguicolors
+" Vim fold
+set foldlevelstart=20
 
 "" Start scrolling when the bottom is 8 lines away from the cursor
 set scrolloff=8
@@ -54,6 +56,8 @@ Plug 'dense-analysis/ale'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
 if !exists("g:syntax_on")
@@ -147,6 +151,11 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
+" For yamllint
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -175,4 +184,5 @@ augroup END
 " For nvim-tree
 lua require'nvim-tree'.setup {}
 
-
+" For YAML auto-indentation.
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
