@@ -58,6 +58,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'pedrohdz/vim-yaml-folds'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 if !exists("g:syntax_on")
