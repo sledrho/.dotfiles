@@ -183,7 +183,7 @@ augroup SHELDOR
 augroup END
 
 " For nvim-tree
-lua require'nvim-tree'.setup {
+:lua require'nvim-tree'.setup {
    auto_reload_on_write = true,
    open_on_setup = true,
 }
