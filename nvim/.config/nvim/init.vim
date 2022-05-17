@@ -182,11 +182,13 @@ augroup SHELDOR
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
-" For nvim-tree
-:lua require'nvim-tree'.setup {
+"   For nvim-tree
+lua << EOF
+require'nvim-tree'.setup {
    auto_reload_on_write = true,
    open_on_setup = true,
 }
+EOF
 
 " For YAML auto-indentation.
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
