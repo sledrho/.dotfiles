@@ -1,4 +1,3 @@
-
 " Sets - Basic Settings "
 """""""""""""""""""""""""
 
@@ -34,9 +33,14 @@ set colorcolumn=85
 " Gives more space for displaying messages
 set cmdheight=2
 
+" For nvim to use the system clipboard
+set clipboard+=unnamedplus
+
 " Python Black-NVIM Config Req
 let g:python3_host_prog = $HOME . '/.local/venv/nvim/bin/python'
 
+" Enable mouse resizing
+set mouse=a
 """""""""""
 " PLUGINS "
 """""""""""
@@ -59,6 +63,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'dense-analysis/ale'
+Plug 'cappyzawa/starlark.vim'
+Plug 'zsh-users/zsh-syntax-highlighting'
+Plug 'aquasecurity/vim-tfsec'
+Plug 'tsandall/vim-rego'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 if !exists("g:syntax_on")
@@ -187,8 +196,21 @@ lua << EOF
 require'nvim-tree'.setup {
    auto_reload_on_write = true,
    open_on_setup = true,
+   view = {
+        side = 'right',
+        width = 45,
+        mappings = {
+            custom_only = false,
+            list = {
+               { key = "<C-k>", action = "" },
+            },
+        },
+    }
 }
 EOF
 
 " For YAML auto-indentation.
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" For ALE to use ZSH linter
+autocmd FileType zsh let g:ale_sh_shell_default_shell='zsh'
