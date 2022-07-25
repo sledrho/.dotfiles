@@ -68,6 +68,12 @@ Plug 'zsh-users/zsh-syntax-highlighting'
 Plug 'aquasecurity/vim-tfsec'
 Plug 'tsandall/vim-rego'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'hashivim/vim-terraform'
+Plug 'jose-elias-alvarez/null-ls.nvim' " For vale prose linting (lua LSP)
+Plug 'folke/trouble.nvim' " Vscode like diagnostics
+Plug 'endaaman/vim-case-master'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 if !exists("g:syntax_on")
@@ -95,7 +101,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-
+inoremap <silent><expr> <c-space> coc#refresh()
 " For Nvim-tree
 
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
@@ -209,8 +215,37 @@ require'nvim-tree'.setup {
 }
 EOF
 
+" For Lua LSP
+lua << EOF
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.diagnostics.vale,
+    },
+})
+EOF
+
+" For diagnostics page
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+
 " For YAML auto-indentation.
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup yaml-indent
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
 
 " For ALE to use ZSH linter
-autocmd FileType zsh let g:ale_sh_shell_default_shell='zsh'
+augroup alelint
+    autocmd FileType zsh let g:ale_sh_shell_default_shell='zsh'
+augroup END
+
+
+" Vim Template Skeleton Files
+
+autocmd BufNewFile *.sh 0r ~/gitsandbox/.dotfiles/nvim/templates/skeleton.sh
+
