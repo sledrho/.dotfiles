@@ -51,8 +51,10 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'mhartington/oceanic-next'
 Plug 'haystackandroid/vimspectr'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'averms/black-nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -74,13 +76,15 @@ Plug 'folke/trouble.nvim' " Vscode like diagnostics
 Plug 'endaaman/vim-case-master'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'EdenEast/nightfox.nvim' " Vim-Plug
 call plug#end()
 
 if !exists("g:syntax_on")
     syntax enable
 endif
 
-colorscheme OceanicNext
+colorscheme dayfox
 highlight Normal guibg=none
 
 
@@ -233,6 +237,11 @@ lua << EOF
   }
 EOF
 
+" For lualine
+lua << END
+vim.cmd("colorscheme nightfox")
+require('lualine').setup()
+END
 
 " For YAML auto-indentation.
 augroup yaml-indent
