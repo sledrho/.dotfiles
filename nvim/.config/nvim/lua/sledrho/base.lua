@@ -9,18 +9,19 @@ set.expandtab = true
 
 
 set.smartindent = true
-set.guicursor = true
+set.guicursor = ""
 set.relativenumber = true
 set.nu = true
-set.nohlsearch = true
+set.hlsearch = false
 set.hidden = true
-set.noerrorbells = true
-set.nowrap = true
-set.noswapfile = true
-set.nobackup = true
+set.errorbells = false
+set.wrap = false
+set.swapfile = false
+set.backup = false
 
 set.scrolloff = 8
-set.colorcolumn = 85
+set.colorcolumn = '85'
 
 set.cmdheight = 2
 set.mouse = 'a'
+set.signcolumn = 'yes'
