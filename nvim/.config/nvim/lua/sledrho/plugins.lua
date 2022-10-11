@@ -16,6 +16,15 @@ return require('packer').startup(function(use)
    'nvim-lualine/lualine.nvim',
    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  -- file browser
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+
   -- yaml folding
   use {
    'pedrohdz/vim-yaml-folds'
@@ -26,7 +35,10 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-
+  use "neovim/nvim-lspconfig"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/nvim-compe"
+  use "hrsh7th/cmp-nvim-lsp"
 
 
   -- Vim help
