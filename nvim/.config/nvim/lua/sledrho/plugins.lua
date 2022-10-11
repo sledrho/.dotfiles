@@ -31,9 +31,13 @@ return require('packer').startup(function(use)
   }
 
   -- Languages/Syntax
+  --use {
+  --      'nvim-treesitter/nvim-treesitter',
+  --      run = ':TSUpdate'
+  --  }
   use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
   use "neovim/nvim-lspconfig"
   use "hrsh7th/nvim-cmp"
