@@ -3,6 +3,7 @@
 lua require('sledrho.base')
 lua require('sledrho.mappings')
 lua require('sledrho.plugins')
+lua require('sledrho.theme')
 
 "set tabstop=4 softtabstop=4
 "set shiftwidth=4
