@@ -25,3 +25,5 @@ set.colorcolumn = '85'
 set.cmdheight = 2
 set.mouse = 'a'
 set.signcolumn = 'yes'
+
+set.foldlevelstart = 20
