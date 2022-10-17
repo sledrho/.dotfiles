@@ -98,6 +98,15 @@ if not configs.golangcilsp then
 	}
 end
 
+require('lspconfig').gopls.setup{
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    on_attach = on_attach,
+    root_dir = nvim_lsp.util.root_pattern("go.mod",".git"),
+    single_file_support = true,
+    flags = lsp_flags,
+}
+
+
 require('lspconfig').golangci_lint_ls.setup{
     filetypes = {'go','gomod'},
     on_attach = on_attach,
