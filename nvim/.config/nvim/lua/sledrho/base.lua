@@ -27,3 +27,8 @@ set.mouse = 'a'
 set.signcolumn = 'yes'
 
 set.foldlevelstart = 20
+
+
+-- To use system clipboard
+set.clipboard = 'unnamedplus'
+
