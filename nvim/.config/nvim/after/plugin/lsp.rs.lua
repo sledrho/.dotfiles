@@ -129,7 +129,8 @@ require'lspconfig'.yamlls.setup{
         yaml = {
             schemas = {
                 ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml"
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+                ["/Users/rory.sheldon/.config/nvim/local-schema/cloud-custodian.json"] = "*.yml",
             }
         }
     }
