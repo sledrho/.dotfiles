@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- for trailing whitespace
+  use { 'johnfrankmorgan/whitespace.nvim' }
   -- Themes
   use "EdenEast/nightfox.nvim" -- Packer
 
