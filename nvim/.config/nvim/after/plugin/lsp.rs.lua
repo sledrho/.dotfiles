@@ -38,6 +38,9 @@ cmp.setup({
 })
 
 
+-- LSP Formatter
+require('lsp-format').setup{}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
@@ -74,7 +77,7 @@ local lsp_flags = {
 -- language specific config
 -- Python
 require('lspconfig').pyright.setup{
-    on_attach = on_attach,
+    on_attach = require('lsp-format').on_attach,
     flags = lsp_flags,
 }
 
@@ -82,7 +85,13 @@ require('lspconfig').pyright.setup{
 require('lspconfig').terraformls.setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    filetypes = { "tf", "terraform"},
+    root_dir = nvim_lsp.util.root_pattern("terraform", ".terraform"),
+    cmd = {"terraform-ls", "serve"} 
+
 }
+-- tflint
+require('lspconfig').tflint.setup{}
 
 -- Golang
 
@@ -97,6 +106,12 @@ if not configs.golangcilsp then
 		};
 	}
 end
+
+-- Starlark (custom implementation)
+-- require('lspconfig').starlarkls.setup{
+--     filetypes = { ".drone.star", ".star" },
+--     on_attach = on_attach,
+-- }
 
 require('lspconfig').gopls.setup{
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -135,3 +150,4 @@ require'lspconfig'.yamlls.setup{
         }
     }
 }
+
