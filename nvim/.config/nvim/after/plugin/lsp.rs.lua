@@ -40,10 +40,7 @@ cmp.setup({
 
 -- LSP Formatter
 require('lsp-format').setup{}
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -89,7 +86,7 @@ require('lspconfig').terraformls.setup{
     flags = lsp_flags,
     filetypes = { "tf", "terraform"},
     root_dir = nvim_lsp.util.root_pattern("terraform", ".terraform"),
-    cmd = {"terraform-ls", "serve"} 
+    cmd = {"terraform-ls", "serve"}
 
 }
 -- tflint
@@ -133,6 +130,7 @@ require('lspconfig').golangci_lint_ls.setup{
 
 -- Lua
 require('lspconfig').luau_lsp.setup{
+    filetypes = {'lua'},
     on_attach = on_attach,
     flags = lsp_flags,
 }

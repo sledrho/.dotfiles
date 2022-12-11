@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use 'saadparwaiz1/cmp_luasnip'
-  
+
   -- lsp formatter (async)
   use "lukas-reineke/lsp-format.nvim"
 
@@ -69,7 +69,8 @@ return require('packer').startup(function(use)
   }
 
   -- for trailing whitespace
-  use { 'johnfrankmorgan/whitespace.nvim' }
+--  use { 'johnfrankmorgan/whitespace.nvim' }
+  use { 'ntpeters/vim-better-whitespace' }
   -- Themes
   use "EdenEast/nightfox.nvim" -- Packer
 
