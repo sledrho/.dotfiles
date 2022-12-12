@@ -151,3 +151,9 @@ require'lspconfig'.yamlls.setup{
     }
 }
 
+
+-- JSON
+require('lspconfig').jsonls.setup{
+    filetypes = {"json", "jsonc"},
+    on_attach=on_attach,
+}
