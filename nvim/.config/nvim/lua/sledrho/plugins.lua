@@ -57,6 +57,9 @@ return require('packer').startup(function(use)
   -- Vimspector - debugging
   use "puremourning/vimspector"
 
+  -- vim tmux navigator
+  use "christoomey/vim-tmux-navigator"
+
   -- Vim help
   use {
     "folke/which-key.nvim",
