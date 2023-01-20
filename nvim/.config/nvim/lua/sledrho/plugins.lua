@@ -17,6 +17,12 @@ return require('packer').startup(function(use)
    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use "lukas-reineke/indent-blankline.nvim"
+  -- no neckpain
+  use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+  -- barbar for tab bar
+use 'nvim-tree/nvim-web-devicons'
+use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+
   -- file browser
   use {
     'nvim-tree/nvim-tree.lua',
@@ -48,12 +54,39 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use "cappyzawa/starlark.vim"
 
-  -- lsp formatter (async)
+  -- vscode like peek
+
+   use({
+      "dnlhc/glance.nvim",
+      config = function()
+        require('config.glance').setup()
+      end,
+    })
+-- lsp formatter (async)
   use "lukas-reineke/lsp-format.nvim"
 
     -- vim-tfsec
     use "aquasecurity/vim-tfsec"
 
+  -- neoscroll - smooth scrolling
+  use {
+    'karb94/neoscroll.nvim',
+    config = function() 
+        require('neoscroll').setup() {
+            -- All these keys will be mapped to their corresponding default scrolling animation
+            mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                        '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+            hide_cursor = true,          -- Hide cursor while scrolling
+            stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+            respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+            cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+            easing_function = nil,       -- Default easing function
+            pre_hook = nil,              -- Function to run before the scrolling animation starts
+            post_hook = nil,             -- Function to run after the scrolling animation ends
+            performance_mode = false,    -- Disable "Performance Mode" on all buffers.
+        }
+    end
+  }
   -- Vimspector - debugging
   use "puremourning/vimspector"
 

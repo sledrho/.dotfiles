@@ -5,7 +5,7 @@ nvimtree.setup {
    auto_reload_on_write = true,
    open_on_setup = true,
    view = {
-        side = 'right',
+        side = 'left',
         width = 45,
         mappings = {
             custom_only = false,
@@ -34,27 +34,30 @@ nvimtree.setup {
             },
         },
     },
-    icons = {
-      default = '',
-      symlink = '',
-      git = {
-        unstaged = "✗",
-        staged = "✓",
-        unmerged = "",
-        renamed = "➜",
-        untracked = "★",
-        deleted = "",
-        ignored = "◌"
+        icons = {
+          webdev_colors = true,
+          git_placement = "before",
+          padding = " ",
+          default = '',
+          symlink = '',
+          git = {
+            unstaged = "✗",
+            staged = "✓",
+            unmerged = "",
+            renamed = "➜",
+            untracked = "★",
+            deleted = "",
+            ignored = "◌"
+            },
+          folder = {
+            arrow_open = "",
+            arrow_closed = "",
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = "",
+            symlink_open = "",
+            },
         },
-      folder = {
-        arrow_open = "",
-        arrow_closed = "",
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = "",
-        },
-    },
   }
