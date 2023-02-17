@@ -1,3 +1,6 @@
-vim.cmd("colorscheme nightfox")
-
-require('lualine').setup()
+require('lualine').setup {
+    options = {
+        icons_enabled = true,
+        theme = 'tokyonight-storm',
+    },
+}

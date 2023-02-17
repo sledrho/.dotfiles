@@ -20,8 +20,8 @@ return require('packer').startup(function(use)
   -- no neckpain
   use {"shortcuts/no-neck-pain.nvim", tag = "*" }
   -- barbar for tab bar
-use 'nvim-tree/nvim-web-devicons'
-use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+  use 'nvim-tree/nvim-web-devicons'
+  -- use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
 
   -- file browser
   use {
@@ -53,7 +53,10 @@ use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   use 'saadparwaiz1/cmp_luasnip'
   use "cappyzawa/starlark.vim"
-
+  -- for commenting 
+  use {
+      'numToStr/Comment.nvim',
+  }
   -- vscode like peek
 
    use({
@@ -106,10 +109,12 @@ use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
   }
 
   -- for trailing whitespace
---  use { 'johnfrankmorgan/whitespace.nvim' }
+  --  use { 'johnfrankmorgan/whitespace.nvim' }
   use { 'ntpeters/vim-better-whitespace' }
   -- Themes
   use "EdenEast/nightfox.nvim" -- Packer
+  use 'folke/tokyonight.nvim'
+
 
 
 end)
