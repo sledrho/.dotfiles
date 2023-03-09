@@ -11,6 +11,7 @@ nvimtree.setup {
             custom_only = false,
             list = {
                { key = "<C-k>", action = "" },
+               { key = "f", action = "" },
             },
         },
     },

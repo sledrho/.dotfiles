@@ -57,6 +57,12 @@ return require('packer').startup(function(use)
   use {
       'numToStr/Comment.nvim',
   }
+
+  -- for auto closing brackets/etc
+  use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
   -- vscode like peek
 
    use({
