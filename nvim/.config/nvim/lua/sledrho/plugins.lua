@@ -51,13 +51,17 @@ return require('packer').startup(function(use)
   use "hrsh7th/nvim-compe"
   use "hrsh7th/cmp-nvim-lsp"
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+  use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip'
   use "cappyzawa/starlark.vim"
-  -- for commenting 
+  -- for commenting
   use {
       'numToStr/Comment.nvim',
   }
-
+  -- for highlighting words
+  use {
+        "rrethy/vim-illuminate"
+    }
   -- for auto closing brackets/etc
   use {
       "windwp/nvim-autopairs",
@@ -80,7 +84,7 @@ return require('packer').startup(function(use)
   -- neoscroll - smooth scrolling
   use {
     'karb94/neoscroll.nvim',
-    config = function() 
+    config = function()
         require('neoscroll').setup() {
             -- All these keys will be mapped to their corresponding default scrolling animation
             mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
