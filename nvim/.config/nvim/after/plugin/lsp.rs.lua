@@ -87,25 +87,29 @@ require('lspconfig').terraformls.setup{
     filetypes = { "tf", "terraform"},
     root_dir = nvim_lsp.util.root_pattern("terraform", ".terraform"),
     cmd = {"terraform-ls", "serve"}
-
 }
 -- tflint
 require('lspconfig').tflint.setup{}
 
--- Golang
+-- rego
 
-if not configs.golangcilsp then
- 	configs.golangcilsp = {
-		default_config = {
-			cmd = {'golangci-lint-langserver'},
-			root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
-			init_options = {
-					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1" };
-			}
-		};
-	}
+-- require('lspconfig').regols.setup{
+--   on_attach = on_attach,
+--   cmd = {'regols'},
+--   filetypes = { 'rego' },
+--   root_dir = nvim_lsp.util.root_pattern(".git")
+-- }
+
+if not configs.regols then
+  configs.regols = {
+    default_config = {
+      cmd = {'regols'};
+      filetypes = { 'rego' };
+      root_dir = nvim_lsp.util.root_pattern(".git");
+    }
+  }
 end
-
+require('lspconfig').regols.setup{}
 -- Starlark (custom implementation)
 -- require('lspconfig').starlarkls.setup{
 --     filetypes = { ".drone.star", ".star" },
