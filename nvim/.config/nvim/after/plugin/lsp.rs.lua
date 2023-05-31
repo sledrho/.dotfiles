@@ -93,7 +93,7 @@ require('lspconfig').tflint.setup{
     on_attach = on_attach,
     flags = lsp_flags,
     filetypes = { "tf", "terraform"},
-    root_dir = nvim.lsp.util.root_pattern("terraform",".terraform"),
+    root_dir = nvim_lsp.lsp.util.root_pattern("terraform",".terraform"),
     cmd = { "tflint", "--langserver"}
 }
 
