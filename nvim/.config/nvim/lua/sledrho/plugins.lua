@@ -82,6 +82,11 @@ return require('packer').startup(function(use)
 
     -- vim-tfsec
     use "aquasecurity/vim-tfsec"
+  -- trouble, show file diagnostics in bottom section
+  use {
+     "folke/trouble.nvim",
+     requires = { 'kyazdani42/nvim-web-devicons'}
+    }
 
   -- neoscroll - smooth scrolling
   use {
