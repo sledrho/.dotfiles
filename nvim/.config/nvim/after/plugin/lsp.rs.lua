@@ -5,12 +5,8 @@ if (not status) then return end
 local configs = require 'lspconfig/configs'
 
 -- nvim  cmp
-
 local cmp = require('cmp')
-
-
-
-
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -18,9 +14,20 @@ cmp.setup({
           require('luasnip').lsp_expand(args.body)
     end,
   },
-
+  formatting = {
+    format = lspkind.cmp_format({
+        mode = "symbol_text",
+        menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+        }),
+    }),
+  },
   window = {
-
+    documentation = cmp.config.window.bordered()
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -30,10 +37,10 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-}, {
-    { name = buffer },
+      {name = 'path'},
+      {name = 'nvim_lsp', keyword_length = 1},
+      {name = 'buffer', keyword_length = 3},
+      {name = 'luasnip', keyword_length = 2},
   })
 })
 
@@ -98,7 +105,6 @@ require('lspconfig').tflint.setup{
 }
 
 -- rego
-
 -- require('lspconfig').regols.setup{
 --   on_attach = on_attach,
 --   cmd = {'regols'},
@@ -116,6 +122,7 @@ if not configs.regols then
   }
 end
 require('lspconfig').regols.setup{}
+
 -- Starlark (custom implementation)
 -- require('lspconfig').starlarkls.setup{
 --     filetypes = { ".drone.star", ".star" },
@@ -160,7 +167,6 @@ require'lspconfig'.yamlls.setup{
         }
     }
 }
-
 
 -- JSON
 require('lspconfig').jsonls.setup{

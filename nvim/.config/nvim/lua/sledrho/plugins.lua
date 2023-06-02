@@ -46,47 +46,46 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
-  use "neovim/nvim-lspconfig"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/nvim-compe"
-  use "hrsh7th/cmp-nvim-lsp"
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
-  use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip'
+  use "rafamadriz/friendly-snippets"
   use "cappyzawa/starlark.vim"
   -- for rego
   use "kitagry/regols"
   -- for commenting
-  use {
-      'numToStr/Comment.nvim',
-  }
+  use "numToStr/Comment.nvim"
   -- for highlighting words
-  use {
-        "rrethy/vim-illuminate"
-    }
+  use "rrethy/vim-illuminate"
   -- for auto closing brackets/etc
   use {
       "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
   }
   -- vscode like peek
-
-   use({
-      "dnlhc/glance.nvim",
-      config = function()
-        require('config.glance').setup()
-      end,
-    })
--- lsp formatter (async)
+  use({
+    "dnlhc/glance.nvim",
+    config = function()
+      require('config.glance').setup()
+    end,
+  })
+  -- lsp formatter (async)
   use "lukas-reineke/lsp-format.nvim"
-
-    -- vim-tfsec
-    use "aquasecurity/vim-tfsec"
+  -- vim-tfsec
+  use "aquasecurity/vim-tfsec"
   -- trouble, show file diagnostics in bottom section
   use {
      "folke/trouble.nvim",
      requires = { 'kyazdani42/nvim-web-devicons'}
     }
+  -- icons in nvim-cmp
+  use "onsails/lspkind.nvim"
 
   -- neoscroll - smooth scrolling
   use {
@@ -130,7 +129,7 @@ return require('packer').startup(function(use)
   use { 'ntpeters/vim-better-whitespace' }
   -- Themes
   use "EdenEast/nightfox.nvim" -- Packer
-  use 'folke/tokyonight.nvim'
+  use "folke/tokyonight.nvim"
 
 
 
