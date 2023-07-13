@@ -85,6 +85,7 @@ local lsp_flags = {
 require('lspconfig').pyright.setup{
     on_attach = require('lsp-format').on_attach,
     flags = lsp_flags,
+    root_dir = nvim_lsp.util.root_pattern(".tool-versions")
 }
 
 -- Terraform
