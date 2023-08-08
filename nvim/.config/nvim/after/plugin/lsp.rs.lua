@@ -96,6 +96,14 @@ require('lspconfig').terraformls.setup{
     root_dir = nvim_lsp.util.root_pattern("terraform", ".terraform"),
     cmd = {"terraform-ls", "serve"}
 }
+-- Autocommand for Terraform-Language-Server
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
 -- tflint
 require('lspconfig').tflint.setup{
     on_attach = on_attach,
