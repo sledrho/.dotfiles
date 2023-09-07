@@ -146,6 +146,11 @@ return require('packer').startup(function(use)
       }
     end
   }
+  -- hardtime - to break bad habits
+  use {
+   "m4xshen/hardtime.nvim",
+   requires = { 'MunifTanjim/nui.nvim', "nvim-lua/plenary.nvim" }
+  }
 
   -- for trailing whitespace
   --  use { 'johnfrankmorgan/whitespace.nvim' }
