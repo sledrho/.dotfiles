@@ -1,0 +1,27 @@
+# automates grabbing the token from aws ecr for podman usage
+aws_ecr_podman_login() {
+  local aws_login_cmd
+  local ecr_registry
+
+  # Set the ECR registry URL you want to log in to
+  ecr_registry="replace with registry url"
+
+  # Run the AWS ECR get-login-password command
+  aws_login_cmd=$(aws ecr get-login-password --region eu-west-1 --profile="replace with profile")
+
+  # Check if the AWS ECR command was successful
+  if [[ $aws_login_cmd == "eyJ"* ]]; then
+    echo "Token was a match"
+    # Run Podman login with the AWS ECR authentication
+    podman login --username AWS --password "${aws_login_cmd}" "${ecr_registry}"
+  else
+    echo "AWS ECR login failed."
+  fi
+}
+
+alias ecrlogin=aws_ecr_podman_login
+
+# decoding jwts
+function jwt-decode() {
+    jq -R 'split(".") | .[1] | @base64d | fromjson' <<< "$1"
+}
