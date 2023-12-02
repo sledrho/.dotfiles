@@ -160,6 +160,8 @@ require('lspconfig').luau_lsp.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+-- bash
+require('lspconfig').bashls.setup{}
 
 -- Yaml
 require'lspconfig'.yamlls.setup{

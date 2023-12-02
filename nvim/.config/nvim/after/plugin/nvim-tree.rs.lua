@@ -1,5 +1,5 @@
 local status, nvimtree = pcall(require, 'nvim-tree')
-if (not status) then return end
+f (not status) then return end
 
 nvimtree.setup {
    auto_reload_on_write = true,
@@ -73,5 +73,8 @@ nvimtree.setup {
     --           },
     --         },
     --     },
+    },
+    filters = {
+        dotfiles = true,
     },
 }
