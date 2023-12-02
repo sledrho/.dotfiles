@@ -29,6 +29,8 @@ set.signcolumn = 'yes'
 
 set.foldlevelstart = 20
 
+set.iskeyword = "_"
+
 
 set.termguicolors = true
 

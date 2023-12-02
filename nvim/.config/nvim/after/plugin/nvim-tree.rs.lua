@@ -1,5 +1,5 @@
 local status, nvimtree = pcall(require, 'nvim-tree')
-f (not status) then return end
+if (not status) then return end
 
 nvimtree.setup {
    auto_reload_on_write = true,
@@ -34,47 +34,8 @@ nvimtree.setup {
               none = " ",
             },
         },
-    --     icons = {
-    --       webdev_colors = true,
-    --       git_placement = "before",
-    --       padding = " ",
-    --       default = '',
-    --       symlink = '',
-    --       show = {
-    --         file = true,
-    --         folder = true,
-    --         folder_arrow = true,
-    --         git = true,
-    --         modified = true,
-    --       },
-    --       glyphs = {
-    --         default = "",
-    --         symlink = "",
-    --         bookmark = "󰆤",
-    --         modified = "●",
-    --         git = {
-    --           unstaged = "✗",
-    --           staged = "✓",
-    --           unmerged = "",
-    --           renamed = "➜",
-    --           untracked = "★",
-    --           deleted = "",
-    --           ignored = "◌"
-    --           },
-    --         folder = {
-    --           arrow_open = "",
-    --           arrow_closed = "",
-    --           default = "",
-    --           open = "",
-    --           empty = "",
-    --           empty_open = "",
-    --           symlink = "",
-    --           symlink_open = "",
-    --           },
-    --         },
-    --     },
     },
     filters = {
-        dotfiles = true,
+        dotfiles = false, 
     },
 }
