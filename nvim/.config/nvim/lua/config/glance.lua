@@ -1,4 +1,6 @@
 local M = {}
+local glance = require('glance')
+local actions = glance.actions
 
 function M.setup()
   require("neogen").setup {

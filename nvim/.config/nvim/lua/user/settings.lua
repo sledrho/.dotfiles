@@ -40,10 +40,4 @@ set.clipboard = 'unnamedplus'
 
 vim.g.loaded_netrw = 1
 
-vim.g.loaded_netrwPlugin = 1
-
--- for ufo folding 
-set.foldcolumn = '1' -- '0' is not bad
-set.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-set.foldlevelstart = 99
-set.foldenable = true
+v

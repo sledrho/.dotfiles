@@ -3,7 +3,6 @@ if (not status) then return end
 
 nvimtree.setup {
    auto_reload_on_write = true,
-   open_on_setup = true,
    view = {
         side = 'left',
         width = 30,
@@ -36,6 +35,6 @@ nvimtree.setup {
         },
     },
     filters = {
-        dotfiles = false, 
+        dotfiles = false,
     },
 }
