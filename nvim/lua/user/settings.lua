@@ -38,6 +38,5 @@ set.termguicolors = true
 set.clipboard = 'unnamedplus'
 
 
-vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrw = 1
 
-v
