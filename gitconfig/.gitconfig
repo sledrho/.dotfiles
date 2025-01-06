@@ -1,0 +1,9 @@
+[core]
+    editor = nvim
+    excludesFile = ~/.gitignore
+
+[status]
+    short = true
+
+[url "git@github.com:"]
+    insteadOf = https://github.com
