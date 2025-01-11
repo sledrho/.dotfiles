@@ -1,6 +1,11 @@
 [core]
     editor = nvim
     excludesFile = ~/.gitignore
+    whitespace = trailing-space,space-before-tab
+
+[branch]
+    # Order branches by commiterdate
+	sort = -committerdate
 
 [status]
     short = true
